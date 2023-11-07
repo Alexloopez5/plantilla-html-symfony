@@ -15,6 +15,7 @@ class ContactController extends AbstractController
     #[Route('/contact', name: 'contact')]
     public function index(ManagerRegistry $doctrine, Request $request): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         $contact = new Contact();
         $form = $this ->createForm(ContactFormType::class,$contact);
         $form->handleRequest($request);

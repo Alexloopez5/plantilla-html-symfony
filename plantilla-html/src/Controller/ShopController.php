@@ -11,12 +11,14 @@ class ShopController extends AbstractController
     #[Route('/shop', name: 'shop')]
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('shop/index.html.twig', []);
     }
     
     #[Route('/shop-single', name: 'shop-single')]
     public function indexShopSingle(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('shop/shop-singleindex.html.twig', []);
     }
 }
