@@ -13,4 +13,9 @@ class PageController extends AbstractController
     {
         return $this->render('page/index.html.twig', []);
     }
+
+    #[Route('/perfil', name: 'perfil')]
+    public function perfil(): Response{
+        return $this->render('perfil/perfil.html.twig');
+    }
 }

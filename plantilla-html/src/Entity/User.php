@@ -35,6 +35,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $username = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $file = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -125,6 +128,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUsername(string $username): static
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
+
+    public function setFile(?string $file): static
+    {
+        $this->file = $file;
 
         return $this;
     }
