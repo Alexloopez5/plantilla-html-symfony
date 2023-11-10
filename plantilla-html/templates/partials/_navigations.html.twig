@@ -58,7 +58,12 @@
                     <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                 </a>
                 {% if app.user %}
-                    <a href="{{ path("perfil") }}"><img id="perfil" src="{{ asset('images/index/gallery/' ~ app.user.file) }}" alt="fotoperfil" class="img-circle"></img></a>
+                    {% if app.user.file %}
+                        <a href="{{ path("perfil") }}"><img id="perfil" src="{{ asset('images/index/gallery/' ~ app.user.file) }}" alt="fotoperfil" class="img-circle"></img></a>
+                    {% else %}
+                        <a href="{{ path("perfil") }}"><img id="perfil" src="{{ asset('images/index/gallery/noperfil.jpeg') }}" alt="fotoperfil" class="img-circle"></img></a>
+                    {% endif %}
+                    
                 {% endif %}                                
             </div>
         </div>

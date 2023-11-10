@@ -6,7 +6,11 @@
     <div class="container-fluid bg-light py-5">
         <div class="col-md-6 m-auto text-center">
             <h1 class="h1">Perfil</h1>
-            <img id="perfil2" src="{{ asset('images/index/gallery/' ~ app.user.file) }}" alt="fotoperfil">
+            {% if app.user.file %}
+                <img id="perfil2" src="{{ asset('images/index/gallery/' ~ app.user.file) }}" alt="fotoperfil">
+            {% else %}            
+                <img id="perfil2" src="{{ asset('images/index/gallery/noperfil.jpeg') }}" alt="fotoperfil">
+            {% endif %}                        
             <p>Nombre: {{ app.user.name }}</p>
             <p>Username: {{ app.user.username }}</p>
             <p>Email: {{ app.user.email }}</p>
